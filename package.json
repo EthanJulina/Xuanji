@@ -1,0 +1,65 @@
+{
+  "name": "quickdock",
+  "productName": "玄机",
+  "version": "2.2.0",
+  "description": "玄机 —— 网络安全人员个人安全操作台(纯本地运行 / 工作空间 / 多启动配置 / 首页工作台 / 命令面板)",
+  "main": "electron/main.js",
+  "private": true,
+  "author": "EthanJulina",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "concurrently -k \"vite\" \"wait-on tcp:127.0.0.1:5173 && cross-env VITE_DEV=1 electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "smoke": "cross-env QD_SMOKE=1 electron .",
+    "pack": "npm run build && electron-builder --win nsis",
+    "pack:portable": "npm run build && electron-builder --win portable",
+    "gen:icon": "python scripts/gen-icon.py"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.4.11",
+    "wait-on": "^8.0.1"
+  },
+  "dependencies": {
+    "pinyin-pro": "^3.26.0",
+    "vue": "^3.5.13"
+  },
+  "build": {
+    "appId": "com.xuanji.app",
+    "productName": "玄机",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "玄机",
+      "artifactName": "XuanJi-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "XuanJi-Portable-${version}.${ext}"
+    }
+  },
+  "optionalDependencies": {
+    "@esbuild/win32-x64": "^0.28.2",
+    "@rollup/rollup-win32-x64-msvc": "^4.63.5"
+  }
+}

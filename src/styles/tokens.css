@@ -1,0 +1,86 @@
+/* ============================================================
+   玄机 - 设计令牌
+   全局统一,禁止在组件中散落魔法值
+   ============================================================ */
+:root {
+  /* 圆角 */
+  --radius-card: 14px;
+  --radius-btn: 8px;
+  --radius-modal: 16px;
+
+  /* 主色(蓝紫系) */
+  --accent: #4F8CFF;
+  --accent-soft: rgba(79, 140, 255, 0.16);
+  --accent-ring: rgba(79, 140, 255, 0.45);
+  --accent-2: #8C6FFF;
+
+  /* 危险色 */
+  --danger: #FF5D5D;
+  --danger-soft: rgba(255, 93, 93, 0.14);
+  --success: #35C759;
+  --warning: #FEBC2E;
+
+  /* 深色背景层 */
+  --bg-window: rgba(24, 24, 28, 0.82);       /* 窗口毛玻璃 */
+  --bg-window-fallback: #16161A;             /* 无材质时兜底 */
+  --bg-sidebar: rgba(14, 14, 18, 0.42);      /* 侧边栏比主区深一档 */
+  --bg-card: rgba(255, 255, 255, 0.05);      /* 卡片 */
+  --bg-card-hover: rgba(255, 255, 255, 0.085);
+  --bg-card-active: rgba(255, 255, 255, 0.03);
+  --bg-elevated: rgba(32, 32, 38, 0.92);     /* 弹窗 / 浮层 */
+  --bg-input: rgba(255, 255, 255, 0.06);
+  --bg-input-hover: rgba(255, 255, 255, 0.09);
+
+  /* 文本三级 */
+  --text-1: rgba(255, 255, 255, 0.92);
+  --text-2: rgba(255, 255, 255, 0.60);
+  --text-3: rgba(255, 255, 255, 0.38);
+
+  /* 分隔线 */
+  --divider: rgba(255, 255, 255, 0.08);
+  --divider-strong: rgba(255, 255, 255, 0.12);
+
+  /* 字体 */
+  --font: "Segoe UI Variable", "Segoe UI", "MiSans", "HarmonyOS Sans SC", "Microsoft YaHei UI", system-ui, sans-serif;
+
+  /* 动效 */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 150ms;
+  --dur-mid: 200ms;
+  --dur-slow: 250ms;
+
+  /* 多层柔和阴影 */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.20), 0 4px 14px rgba(0, 0, 0, 0.16);
+  --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.26), 0 10px 28px rgba(0, 0, 0, 0.26);
+  --shadow-modal: 0 8px 24px rgba(0, 0, 0, 0.35), 0 24px 64px rgba(0, 0, 0, 0.45);
+  --shadow-pop: 0 6px 18px rgba(0, 0, 0, 0.30), 0 16px 40px rgba(0, 0, 0, 0.28);
+
+  /* 布局 */
+  --titlebar-h: 40px;
+  --sidebar-w: 220px;
+}
+
+/* 浅色主题 */
+:root[data-theme="light"] {
+  --bg-window: rgba(245, 246, 250, 0.86);
+  --bg-window-fallback: #F2F3F7;
+  --bg-sidebar: rgba(233, 235, 241, 0.55);
+  --bg-card: rgba(255, 255, 255, 0.66);
+  --bg-card-hover: rgba(255, 255, 255, 0.92);
+  --bg-card-active: rgba(255, 255, 255, 0.5);
+  --bg-elevated: rgba(252, 252, 254, 0.94);
+  --bg-input: rgba(20, 22, 30, 0.05);
+  --bg-input-hover: rgba(20, 22, 30, 0.08);
+
+  --text-1: rgba(28, 30, 36, 0.92);
+  --text-2: rgba(28, 30, 36, 0.58);
+  --text-3: rgba(28, 30, 36, 0.36);
+
+  --divider: rgba(20, 22, 30, 0.09);
+  --divider-strong: rgba(20, 22, 30, 0.14);
+
+  --shadow-card: 0 1px 2px rgba(30, 34, 46, 0.08), 0 4px 14px rgba(30, 34, 46, 0.08);
+  --shadow-card-hover: 0 2px 6px rgba(30, 34, 46, 0.12), 0 10px 28px rgba(30, 34, 46, 0.14);
+  --shadow-modal: 0 8px 24px rgba(30, 34, 46, 0.18), 0 24px 64px rgba(30, 34, 46, 0.22);
+  --shadow-pop: 0 6px 18px rgba(30, 34, 46, 0.14), 0 16px 40px rgba(30, 34, 46, 0.16);
+}
